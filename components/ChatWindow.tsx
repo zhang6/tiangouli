@@ -16,7 +16,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
   return (
     <div className="bg-black/90 rounded-lg overflow-hidden border border-gray-700 h-28 flex flex-col shrink-0">
       <div className="bg-gray-800 px-2 py-0.5 text-[10px] text-gray-400 font-mono border-b border-gray-700 flex justify-between">
-        <span>> SIMP_LOG.txt</span>
+        <span>{'>'} SIMP_LOG.txt</span>
       </div>
       <div className="flex-1 overflow-y-auto p-2 font-mono text-xs space-y-1">
         {messages.map((msg) => {

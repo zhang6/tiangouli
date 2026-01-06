@@ -14,10 +14,6 @@ const App: React.FC = () => {
   const [criticalWord, setCriticalWord] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    addLog(Sender.System, '连接到女神的精神网络... 准备受虐。');
-  }, []);
-
   const addLog = (sender: Sender, text: string) => {
     setMessages(prev => [...prev, {
       id: uuidv4(),
@@ -26,6 +22,10 @@ const App: React.FC = () => {
       timestamp: new Date()
     }]);
   };
+
+  useEffect(() => {
+    addLog(Sender.System, '连接到女神的精神网络... 准备受虐。');
+  }, []);
 
   const handleAction = async (action: SimpAction) => {
     if (loading || status !== GameStatus.Idle) return;
@@ -68,9 +68,12 @@ const App: React.FC = () => {
 
         // 4. Reset
         setTimeout(() => {
-            if (status !== GameStatus.Bankrupt && status !== GameStatus.Blocked) {
-                setStatus(GameStatus.Idle);
-            }
+            setStatus(prevStatus => {
+                if (prevStatus !== GameStatus.Bankrupt && prevStatus !== GameStatus.Blocked) {
+                    return GameStatus.Idle;
+                }
+                return prevStatus;
+            });
             setLoading(false);
         }, 1000);
 
