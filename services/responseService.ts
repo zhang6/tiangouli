@@ -32,3 +32,4 @@ export const generateGoddessAttack = async (
   // 3. LOW TIER (Default)
   return pick(POOR_RESPONSES);
 };
+

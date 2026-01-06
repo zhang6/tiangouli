@@ -3,7 +3,7 @@ import { GameCanvas } from './components/GameCanvas';
 import { ChatWindow } from './components/ChatWindow';
 import { ActionPanel } from './components/ActionPanel';
 import { ChatMessage, Sender, SimpAction, GameStatus } from './types';
-import { generateGoddessAttack } from './services/geminiService';
+import { generateGoddessAttack } from './services/responseService';
 import { v4 as uuidv4 } from 'uuid';
 
 const App: React.FC = () => {
